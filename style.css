@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1c0da5; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main {
+    position: relative;
+    width: 800px;
+    height: 300px; /* Gives the mouse a clear area to hover over */
+    cursor: pointer;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 180px; 
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+/* The bottom text layer */
+.text-back {
+    color: #000000; /* Black text */
+}
+
+/* The top text layer (initially hidden) */
+.text-front {
+    color: #ffffff; /* White text */
+    background-color: #1c0da5; /* Matches body to mask the text below */
+    transition: clip-path 0.5s ease;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hidden at the top */
+}
+
+/* When hovering over the container, reveal the white text */
+.main:hover .text-front {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
